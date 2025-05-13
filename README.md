@@ -61,6 +61,3 @@ db = SecureDB()
 db.execute("SELECT * FROM users WHERE username = 'admin' OR 1=1 --'")  # Blocked!
 db.close()
 ```
-
-## License
-MIT 

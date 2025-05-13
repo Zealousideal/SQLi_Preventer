@@ -1,0 +1,53 @@
+2025-05-13 22:10:33,870 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1 --'
+2025-05-13 22:10:33,870 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users UNION SELECT * FROM sqlite_master
+2025-05-13 22:10:33,870 WARNING [ALERT] SQL Injection attempt detected: DROP TABLE users
+2025-05-13 22:12:28,050 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1 --'
+2025-05-13 22:16:25,494 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1 --'
+2025-05-13 22:18:46,513 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1 --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = '' OR '1'='1' --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR '1'='1'
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR TRUE --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users UNION SELECT * FROM sqlite_master --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE id = 1 UNION SELECT name, sql, 1 FROM sqlite_master --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users; DROP TABLE users; --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin'; DROP TABLE users; --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' -- and password = 'foo'
+2025-05-13 22:18:46,514 WARNING DB Error: unrecognized token: "#"
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' AND SUBSTR(password,1,1) = 'a' --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1; SELECT sleep(5); --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE id = (SELECT MAX(id) FROM users); DROP TABLE users; --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = CHAR(97,100,109,105,110) --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin'/**/OR/**/1=1 --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1#
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1/*
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 0x61646d696e --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users; SELECT * FROM sqlite_master; --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: INSERT INTO users (username, password) VALUES ('evil', 'pw'); --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: UPDATE users SET password = 'pw' WHERE username = 'admin' OR 1=1 --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: DELETE FROM users WHERE username = 'admin' OR 1=1 --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: EXEC xp_cmdshell('dir'); --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR
+'1'='1' --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR '1' = '1' --
+2025-05-13 22:18:46,514 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin'; SELECT * FROM users; --
+2025-05-13 22:18:46,515 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 'a'='a' --
+2025-05-13 22:18:46,515 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR 1=1; --
+2025-05-13 22:18:46,515 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin';--
+2025-05-13 22:18:46,515 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = 'admin' OR SLEEP(5) --
+2025-05-13 22:23:21,655 WARNING DB Error: no such column: is_active
+2025-05-13 22:23:21,655 WARNING DB Error: no such column: age
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: created_at
+2025-05-13 22:23:21,656 WARNING DB Error: no such table: posts
+2025-05-13 22:23:21,656 WARNING [ALERT] SQL Injection attempt detected: INSERT INTO users (username, email, age, is_active) VALUES (?, ?, ?, ?)
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: email
+2025-05-13 22:23:21,656 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE (age > ? OR is_active = ?) AND username LIKE ?
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: created_at
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: age
+2025-05-13 22:23:21,656 WARNING DB Error: no such table: posts
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: age
+2025-05-13 22:23:21,656 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE username = ? OR (age > ? AND is_active = ?)
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: email
+2025-05-13 22:23:21,656 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE email IS NULL OR email = ?
+2025-05-13 22:23:21,656 WARNING [ALERT] SQL Injection attempt detected: SELECT * FROM users WHERE is_active = ? AND (age > ? OR email IS NOT NULL)
+2025-05-13 22:23:21,656 WARNING DB Error: no such table: posts
+2025-05-13 22:23:21,656 WARNING DB Error: no such column: age
